@@ -83,3 +83,11 @@ var hn_sentences= [
     "है वहाँ एक बड़ी सी किताब",
     "है वहाँ बड़ी सी एक किताब"],
   ];
+
+$(document).ready( function(){
+   $("#info").hide();
+})
+
+$("#gen_english").click(function(){
+   $("#info").show();
+})

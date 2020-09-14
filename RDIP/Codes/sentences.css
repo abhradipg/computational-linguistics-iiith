@@ -1,0 +1,33 @@
+body{
+  background-color:#6e66ff;
+  font-size:1.25rem;
+}
+.container{
+  background-color:white;
+  height:100vh;
+}
+header{
+  display:block;
+}
+#iiit img{
+  height:4rem;
+}
+
+.title{
+  background-color:blue;
+  color:white;
+  padding:0.25rem;
+  text-align:center;
+}
+.heading{
+  margin:1rem;
+  padding-bottom:4rem;
+}
+.lang_select{
+  display:block;
+  width:10rem;
+}
+#gen_english:hover, #gen_hindi:hover{
+  cursor:pointer;
+  background-color:#c9c9c9;
+}
