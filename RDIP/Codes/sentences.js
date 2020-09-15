@@ -171,3 +171,8 @@ function show_word(){
    $("#sentence").text($("#sentence").text()+$(this).text()+" ");
 }
 
+$("#reform").click(function(){
+   $(".jumble").show();
+   $("#sentence").text("");
+   $("#formed_sentence").hide();   
+})
