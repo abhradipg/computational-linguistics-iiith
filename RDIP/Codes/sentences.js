@@ -88,6 +88,98 @@ $(document).ready( function(){
    $("#info").hide();
 })
 
+var sent_num;
+var sent_lang;
+
 $("#gen_english").click(function(){
+   if(sent_lang=="eng")
+      return false;
+   sent_lang="eng";
+   $("#buttons").empty();
    $("#info").show();
+   sent_num=gen_english();
+   get_sentence("eng",sent_num);
 })
+
+$("#gen_hindi").click(function(){
+   if(sent_lang=="hin")
+      return false;
+   sent_lang="hin";
+   $("#buttons").empty();
+   $("#info").show();
+   sent_num=gen_hindi();
+   get_sentence("hin",sent_num);
+})
+
+function gen_english(){
+   let num = Math.floor(Math.random()*en_sentences.length)
+   return num;
+}
+
+function gen_hindi(){
+   let num = Math.floor(Math.random()*hn_sentences.length)
+   return num;
+}
+
+function get_sentence(lang,number){
+   if(lang=="eng"){
+      let sentence = en_sentences[number][0].split(" ");
+      gen_sentence(sentence);
+   }
+
+   else{
+      let sentence = hn_sentences[number][0].split(" ");
+      gen_sentence(sentence);
+   }
+}
+
+function gen_sentence(sentence){
+      for(let i=0;i<sentence.length;i++)
+      {
+          let num = Math.floor(Math.random()*(sentence.length));
+          for(let j=num;;j--)
+          {
+              if(j<0)
+                 {                     
+                    j=sentence.length-1;
+                 }
+              if(sentence[j]!=" ")
+                 {
+                     num=j;
+                     break;
+                  }
+               
+           }
+          let id = convert_num_word(num);
+          let button='<button type="button" class="btn btn-outline-success m-1" id="' + id + '">' + sentence[num] + '</button>';
+          $("#buttons").append(button);
+          sentence[num]=" ";
+       }
+}
+
+function convert_num_word(num){
+   switch (num) {
+      case 0 :
+         return "zero";
+      case 1 :
+         return "one";
+      case 2 :
+         return "two";
+      case 3 :
+         return "three";
+      case 4 :
+         return "four";
+      case 5 :
+         return "five";
+      case 6 :
+         return "six";
+      case 7 :
+         return "seven";
+      case 8 :
+         return "eight";
+      case 9 :
+         return "nine";
+      case 10 :
+         return "ten";
+   }
+}
