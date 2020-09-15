@@ -31,3 +31,6 @@ header{
   cursor:pointer;
   background-color:#c9c9c9;
 }
+#formed_sentence{
+  display:none;
+}

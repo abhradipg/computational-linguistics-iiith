@@ -93,7 +93,11 @@ var sent_lang;
 
 $("#gen_english").click(function(){
    if(sent_lang=="eng")
-      return false;
+      {
+          return false;
+      }
+   $("#formed_sentence").hide();
+   $("#sentence").text("");
    sent_lang="eng";
    $("#buttons").empty();
    $("#info").show();
@@ -103,7 +107,11 @@ $("#gen_english").click(function(){
 
 $("#gen_hindi").click(function(){
    if(sent_lang=="hin")
-      return false;
+      {
+          return false;
+      }
+   $("#formed_sentence").hide();
+   $("#sentence").text("");
    sent_lang="hin";
    $("#buttons").empty();
    $("#info").show();
@@ -150,36 +158,16 @@ function gen_sentence(sentence){
                   }
                
            }
-          let id = convert_num_word(num);
-          let button='<button type="button" class="btn btn-outline-success m-1" id="' + id + '">' + sentence[num] + '</button>';
+          let button='<button type="button" class="btn btn-outline-success m-1 jumble">' + sentence[num] + '</button>';
           $("#buttons").append(button);
           sentence[num]=" ";
        }
+   $(".jumble").click(show_word);
 }
 
-function convert_num_word(num){
-   switch (num) {
-      case 0 :
-         return "zero";
-      case 1 :
-         return "one";
-      case 2 :
-         return "two";
-      case 3 :
-         return "three";
-      case 4 :
-         return "four";
-      case 5 :
-         return "five";
-      case 6 :
-         return "six";
-      case 7 :
-         return "seven";
-      case 8 :
-         return "eight";
-      case 9 :
-         return "nine";
-      case 10 :
-         return "ten";
-   }
+function show_word(){
+   $("#formed_sentence").show();
+   $(this).hide();
+   $("#sentence").text($("#sentence").text()+$(this).text()+" ");
 }
+
