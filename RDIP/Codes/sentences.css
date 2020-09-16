@@ -4,7 +4,7 @@ body{
 }
 .container{
   background-color:white;
-  height:100vh;
+  min-height:100vh;
 }
 header{
   display:block;
@@ -35,5 +35,11 @@ header{
   display:none;
 }
 #correctness{
+  display:none;
+}
+#correct_answer{
+  display:none;
+}
+#wrong_answer{
   display:none;
 }
