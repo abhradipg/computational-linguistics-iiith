@@ -96,6 +96,7 @@ $("#gen_english").click(function(){
       {
           return false;
       }
+   $("#correctness").hide();
    $("#formed_sentence").hide();
    $("#sentence").text("");
    sent_lang="eng";
@@ -110,6 +111,7 @@ $("#gen_hindi").click(function(){
       {
           return false;
       }
+   $("#correctness").hide();
    $("#formed_sentence").hide();
    $("#sentence").text("");
    sent_lang="hin";
@@ -169,10 +171,15 @@ function show_word(){
    $("#formed_sentence").show();
    $(this).hide();
    $("#sentence").text($("#sentence").text()+$(this).text()+" ");
+   if($("#buttons").height()==0)
+      {
+        $("#correctness").show();
+    }
 }
 
 $("#reform").click(function(){
    $(".jumble").show();
    $("#sentence").text("");
-   $("#formed_sentence").hide();   
+   $("#formed_sentence").hide();
+   $("#correctness").hide();   
 })
