@@ -43,3 +43,6 @@ header{
 #wrong_answer{
   display:none;
 }
+#answer,#hide_answer{
+  display:none;
+}

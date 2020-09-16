@@ -96,6 +96,8 @@ $("#gen_english").click(function(){
       {
           return false;
       }
+   $("#answer").hide();
+   $("#hide_answer").hide();
    $("#correct_answer").hide();
    $("#wrong_answer").hide();
    $("#answers").empty();
@@ -114,6 +116,8 @@ $("#gen_hindi").click(function(){
       {
           return false;
       }
+   $("#answer").hide();
+   $("#hide_answer").hide();
    $("#correct_answer").hide();
    $("#wrong_answer").hide();
    $("#answers").empty();
@@ -179,6 +183,7 @@ function show_word(){
    if($("#buttons").height()==0)
       {
         $("#correctness").show();
+        $("#get_answers").show();
         $("#sentence").text($("#sentence").text()+$(this).text());
     }
     else{
@@ -193,7 +198,9 @@ $("#reform").click(function(){
    $(".jumble").show();
    $("#sentence").text("");
    $("#formed_sentence").hide();
-   $("#correctness").hide();   
+   $("#correctness").hide();
+   $("#answer").hide();
+   $("#hide_answer").hide();   
 })
 
 $("#correctness").click(function(){
@@ -220,3 +227,32 @@ $("#correctness").click(function(){
      }
      $("#wrong_answer").show();
 })
+
+$("#get_answers").click(function(){
+   if(sent_lang=="eng")
+    {
+        for (let i=0;i<en_sentences[sent_num].length;i++)
+          {
+              $("#answers").append('<div class="text-center m-1">' + en_sentences[sent_num][i] + '</div>');
+            }
+     }
+    else{
+        for (let i=0;i<hn_sentences[sent_num].length;i++)
+          {
+              $("#answers").append('<div class="text-center m-1">' + hn_sentences[sent_num][i] + '</div>'); 
+            }
+     }
+    $("#get_answers").hide();
+    $("#hide_answer").show();
+})
+
+$("#hide_answer").click(toggle);
+$("#answer").click(toggle);
+
+function toggle(){
+   $("#answers").toggle();
+   $("#hide_answer").toggle();
+   $("#answer").toggle();
+}
+
+
