@@ -96,6 +96,7 @@ $("#gen_english").click(function(){
       {
           return false;
       }
+   $("#answers").show();
    $("#answer").hide();
    $("#hide_answer").hide();
    $("#correct_answer").hide();
@@ -116,6 +117,7 @@ $("#gen_hindi").click(function(){
       {
           return false;
       }
+   $("#answers").show();
    $("#answer").hide();
    $("#hide_answer").hide();
    $("#correct_answer").hide();
@@ -195,6 +197,7 @@ $("#reform").click(function(){
    $("#correct_answer").hide();
    $("#wrong_answer").hide();
    $("#answers").empty();
+   $("#answers").show();
    $(".jumble").show();
    $("#sentence").text("");
    $("#formed_sentence").hide();
